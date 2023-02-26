@@ -11,20 +11,8 @@ const ulEl = document.querySelector(".gallery");
 const imageMarkup = galleryItems.map(makeImgEl).join("");
 ulEl.insertAdjacentHTML("beforeend", imageMarkup);
 
-ulEl.addEventListener("click", onImagesClick);
-
-function onImagesClick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-  usageSimpleLightBox();
-}
-
-function usageSimpleLightBox() {
-  new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionPosition: "bottom",
-    captionDelay: 250,
-  });
-}
+new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionDelay: 250,
+});

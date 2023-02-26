@@ -30,13 +30,15 @@ function onImagesClick(event) {
 `);
   instance.show();
 
-  document.addEventListener(
-    "keydown",
-    function (event) {
-      if (event.key === "Escape") {
-        instance.close();
-      }
-    },
-    { once: true }
-  );
+  window.addEventListener("keydown", closeEscModal);
+}
+
+function closeEscModal(event) {
+  if (event.code === "Escape") {
+    const modal = document.querySelector(".basicLightbox");
+    if (modal) {
+      modal.remove();
+    }
+  }
+  window.removeEventListener("keydown", closeEscModal);
 }
